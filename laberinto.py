@@ -326,7 +326,10 @@ def laberinto_game():
                     pygame.display.update()
             game_over = True
             pygame.quit()
-            os.system("py -m menu.py")
+            if sys.platform == "win32":
+                os.system("py -m menu.py")
+            else:  # Asumimos cualquier otro caso como Linux/Unix
+                os.system("python3 -m menu.py")
             sys.exit()
 
         #counter

@@ -122,12 +122,18 @@ while True:
 
             if 514 <= x <= 726 and 342 <= y <= 403:
                 pygame.quit()
-                os.system("py -m pong.py")
+                if sys.platform == "win32":
+                    os.system("py -m pong.py")
+                else:  # Asumimos cualquier otro caso como Linux/Unix
+                    os.system("python3 -m pong.py")
                 sys.exit()
 
             if 404 <= x <= 875 and 450 <= y <= 509:
                 pygame.quit()
-                os.system("py -m laberinto.py")
+                if sys.platform == "win32":
+                    os.system("py -m laberinto.py")
+                else:  # Asumimos cualquier otro caso como Linux/Unix
+                    os.system("python3 -m laberinto.py")
                 sys.exit()
                 
                 

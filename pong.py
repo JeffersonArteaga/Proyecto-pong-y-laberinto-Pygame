@@ -67,7 +67,7 @@ select = pygame.mixer.Sound("sonidos/select.mp3")
 pitidoFinal = pygame.mixer.Sound("sonidos/pitidoFinal.mp3")
 
 # Definir el tiempo límite en segundos
-time_limit = 90
+time_limit = 10
 start_time = time.time()
 
 # Función para convertir segundos a minutos y segundos separados
@@ -97,9 +97,11 @@ while not game_over:
 
 			if 109 <= x <= 522 and 614 <= y <= 663:
 				pygame.quit()
-				os.system("py -m menu.py")
+				if sys.platform == "win32":
+						os.system("py -m menu.py")
+				else:  # Asumimos cualquier otro caso como Linux/Unix
+						os.system("python3 -m menu.py")
 				sys.exit()
-
 
 		if event.type == pygame.KEYDOWN:
 			# Jugador 1
